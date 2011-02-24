@@ -1,18 +1,17 @@
-%define	pkgname	dataenc
+%define		pkgname	dataenc
 Summary:	Data encoding library
 Name:		ghc-%{pkgname}
 Version:	0.13.0.3
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages
 Source0:	http://hackage.haskell.org/packages/archive/%{pkgname}/%{version}/%{pkgname}-%{version}.tar.gz
 # Source0-md5:	e141fb21140627776c3a8f52fa8d7513
-URL:		http://hackage.haskell.org/package/%{pkgname}/
+URL:		http://hackage.haskell.org/package/dataenc/
 BuildRequires:	ghc >= 6.12.3
+BuildRequires:	rpmbuild(macros) >= 1.608
 %requires_releq	ghc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		ghcdir		ghc-%(/usr/bin/ghc --numeric-version)
 
 %description
 Data encoding library currently providing Base16, Base32,
@@ -49,10 +48,10 @@ runhaskell Setup.hs register \
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/bin/ghc-pkg recache
+%ghc_pkg_recache
 
 %postun
-/usr/bin/ghc-pkg recache
+%ghc_pkg_recache
 
 %files
 %defattr(644,root,root,755)
