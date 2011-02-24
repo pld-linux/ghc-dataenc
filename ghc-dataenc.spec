@@ -2,7 +2,7 @@
 Summary:	Data encoding library
 Name:		ghc-%{pkgname}
 Version:	0.13.0.3
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Languages
 Source0:	http://hackage.haskell.org/packages/archive/%{pkgname}/%{version}/%{pkgname}-%{version}.tar.gz
