@@ -1,12 +1,13 @@
 %define		pkgname	dataenc
 Summary:	Data encoding library
 Name:		ghc-%{pkgname}
-Version:	0.14.0.5
+Version:	0.14.0.7
 Release:	1
 License:	BSD
 Group:		Development/Languages
 Source0:	http://hackage.haskell.org/packages/archive/%{pkgname}/%{version}/%{pkgname}-%{version}.tar.gz
-# Source0-md5:	4da812ca7a1640a5fdcc676009ab160c
+# Source0-md5:	28491649dbeafb9512b4ea187cc6fddf
+Patch0:		relax-base-deps.patch
 URL:		http://hackage.haskell.org/package/dataenc/
 BuildRequires:	ghc >= 6.12.3
 BuildRequires:	rpmbuild(macros) >= 1.608
@@ -34,6 +35,7 @@ Dokumentacja w formacie HTML dla %{pkgname}.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch0 -p1
 
 %build
 runhaskell Setup.hs configure -v2 \
